@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
+import { Color } from './App.type';
+
 function App() {
+  const [buttonColor, setButtonColor] =
+    useState<Color>('red');
+  const newButtonColor = buttonColor === 'red' ? 'blue' : 'red';
+
+  const handleButtonClick = () => {
+    setButtonColor(newButtonColor);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <button
+        onClick={handleButtonClick}
+        style={{ backgroundColor: buttonColor}}
+      >
+        Change to {newButtonColor}
+      </button>
     </div>
   );
 }
