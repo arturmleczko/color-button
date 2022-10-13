@@ -1,7 +1,8 @@
-import {ChangeEvent, useState} from 'react';
+import {ChangeEvent, useState, useEffect } from 'react';
 import './App.css';
 
 import { Color } from './App.type';
+import {isDisabled} from "@testing-library/user-event/dist/utils";
 
 function App() {
   const [buttonColor, setButtonColor] =
@@ -21,7 +22,11 @@ function App() {
     <div>
       <button
         onClick={handleButtonClick}
-        style={{ backgroundColor: buttonColor}}
+        style={{ backgroundColor:
+            buttonIsDisabled ?
+              'gray' :
+              buttonColor
+        }}
         disabled={buttonIsDisabled}
       >
         Change to {newButtonColor}
