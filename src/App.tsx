@@ -2,7 +2,10 @@ import {ChangeEvent, useState, useEffect } from 'react';
 import './App.css';
 
 import { Color } from './App.type';
-import {isDisabled} from "@testing-library/user-event/dist/utils";
+
+export const replaceCamelWithSpaces = (colorName: string) => {
+  return colorName.replace(/\B([A-Z])\B/g, ' $1');
+}
 
 function App() {
   const [buttonColor, setButtonColor] =
