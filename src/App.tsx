@@ -31,6 +31,9 @@ function App() {
         id="disabled-button-checkbox"
         onChange={handleCheckboxChange}
       />
+      <label htmlFor="disabled-button-checkbox">
+        Disable button
+      </label>
     </div>
   );
 }
